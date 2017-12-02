@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.template2')
 
 @section('content')
 <div class="container">
@@ -24,6 +24,7 @@
                                 @endif
                             </div>
                         </div>
+                        teste aqui
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Senha</label>

@@ -1,4 +1,4 @@
-@extends('template.template2')
+@extends('layouts.app')
 @section('content')
     <!-- Page header -->
     <div class="header">
