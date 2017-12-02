@@ -6,53 +6,37 @@
     </div>
 
     <ul class="nav">
-        <li class="active">
-            <a href="dashboard.html">
+        <li class="">
+            <a href="/home">
                 <i class="pe-7s-graph"></i>
-                <p>Dashboard</p>
+                <p>Início</p>
+            </a>
+        </li>
+        <li class="">
+            <a href="/produtos">
+                <i class="pe-7s-graph"></i>
+                <p>Produtos</p>
+            </a>
+        </li>
+        <li class="">
+            <a href="/colecoes">
+                <i class="pe-7s-graph"></i>
+                <p>Coleções</p>
             </a>
         </li>
         <li>
-            <a href="user.html">
+            <a href="/titulos">
                 <i class="pe-7s-user"></i>
-                <p>User Profile</p>
+                <p>Títulos</p>
             </a>
         </li>
         <li>
-            <a href="table.html">
+            <a href="/amigos">
                 <i class="pe-7s-note2"></i>
-                <p>Table List</p>
+                <p>Amigos</p>
             </a>
         </li>
-        <li>
-            <a href="typography.html">
-                <i class="pe-7s-news-paper"></i>
-                <p>Typography</p>
-            </a>
-        </li>
-        <li>
-            <a href="icons.html">
-                <i class="pe-7s-science"></i>
-                <p>Icons</p>
-            </a>
-        </li>
-        <li>
-            <a href="maps.html">
-                <i class="pe-7s-map-marker"></i>
-                <p>Maps</p>
-            </a>
-        </li>
-        <li>
-            <a href="notifications.html">
-                <i class="pe-7s-bell"></i>
-                <p>Notifications</p>
-            </a>
-        </li>
-        <li class="active-pro">
-            <a href="upgrade.html">
-                <i class="pe-7s-rocket"></i>
-                <p>Upgrade to PRO</p>
-            </a>
-        </li>
+
+
     </ul>
 </div>

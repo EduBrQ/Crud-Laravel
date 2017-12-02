@@ -4,21 +4,21 @@
     <div class="header">
         <div class="heading-elements" style="text-align: right">
             <div class="heading-btn-group">
-                <a href="{{ URL::to('/produtos/create') }}" class="btn btn-success">
-                    <span> Adicionar Produtos</span></a>
+                <a href="{{ URL::to('/colecoes/create') }}" class="btn btn-success">
+                    <span> Adicionar colecoes</span></a>
             </div>
         </div>
 
         <div class="panel-heading">
             <h4>
                 <i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Projeto</span> -
-                Produtos
+                colecoes
             </h4>
         </div>
         <hr>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"><i class="icon-home2 position-left"></i> Principal</a></li>
-            <li class="breadcrumb-item active">Produtos</li>
+            <li class="breadcrumb-item active">colecoes</li>
         </ol>
 
     </div>
@@ -30,18 +30,18 @@
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th>Referência</th>
+                <th>Edição</th>
                 <th>Nome</th>
-                <th>Valor</th>
+                <th>Editora</th>
                 <th class="text-center">Ações</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($produtos as $chave => $produto)
+            @foreach($colecoes as $chave => $colecao)
                 <tr>
-                    <td>{{ $produto->referencia }}</td>
-                    <td>{{ $produto->nome}}</td>
-                    <td>{{ $produto->valor}}</td>
+                    <td>{{ $colecao->n_edicao }}</td>
+                    <td>{{ $colecao->nome}}</td>
+                    <td>{{ $colecao->editora}}</td>
 
                     <td class="text-center">
                         <ul class="nav navbar-nav navbar-right">
@@ -52,14 +52,14 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{url('produtos/' . $produto->id . '/edit')}}"><i
+                                        <a href="{{url('colecoes/' . $colecao->id . '/edit')}}"><i
                                                     class="pe-7s-note"></i>
-                                            Editar Produtos</a>
+                                            Editar colecoes</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('produtos/' . $produto ->id . '/delete')}}"><i
+                                        <a href="{{url('colecoes/' . $colecao ->id . '/delete')}}"><i
                                                     class="pe-7s-trash"></i>
-                                            Excluir Produtos</a>
+                                            Excluir colecoes</a>
                                     </li>
                                 </ul>
                             </li>

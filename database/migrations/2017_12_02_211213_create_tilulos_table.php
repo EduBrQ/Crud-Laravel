@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColecaoRevistasTable extends Migration
+class CreateTilulosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateColecaoRevistasTable extends Migration
      */
     public function up()
     {
-        Schema::create('colecoes', function (Blueprint $table) {
+        Schema::create('tilulos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('n_edicao');
             $table->string('nome');
             $table->string('editora');
-            $table->integer('id_user');
-
+            $table->string('valor');
+            $table->string('data_lancamento');
+            $table->string('autor');
+            $table->integer('id_colecao');
             $table->timestamps();
 
-            $table->index('id_user');
+            $table->index('id_colecao');
+
         });
     }
 
@@ -33,6 +35,6 @@ class CreateColecaoRevistasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colecao_revistas');
+        Schema::dropIfExists('tilulos');
     }
 }

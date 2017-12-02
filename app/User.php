@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function emprestimos()
+    {
+        return $this->hasMany(User::class, "id_user");
+    }
+
+    public function colecoes()
+    {
+        return $this->hasMany(User::class, "id_user");
+    }
 }
