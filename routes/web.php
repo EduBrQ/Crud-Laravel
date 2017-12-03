@@ -6,15 +6,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/produtos', 'ProdutosController');
-Route::get('/produtos/{id}/delete', 'ProdutosController@delete');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/produtos', 'ProdutosController');
+    Route::get('/produtos/{id}/delete', 'ProdutosController@delete');
 
-Route::resource('/servicos', 'ServicoController');
-Route::get('/servicos/{id}/delete', 'ServicoController@delete');
+//COLEÇÕES
+    Route::resource('/colecoes', 'ColecaoRevistasController');
+    Route::get('/colecoes/{id}/delete', 'ColecaoRevistasController@delete');
+    Route::get('/colecoes/{id}/titulos', 'ColecaoRevistasController@titulos');
 
-Route::resource('/colecoes', 'ColecaoRevistasController');
-Route::get('/colecoes/{id}/delete', 'ColecaoRevistasController@delete');
+//TÍTULOS
+    Route::resource('/titulos', 'TituloController');
+    Route::get('/titulos/create/{id}', 'TituloController@create');
+    Route::get('/titulos/{id}/delete', 'TituloController@delete');
 
-
-
+//EMPRESTIMOS
+    Route::resource('/emprestimos', 'EmprestimoController');
+    Route::get('/emprestimos/create/{id}', 'EmprestimoController@create');
+    Route::get('/emprestimos/{id}/delete', 'EmprestimoController@delete');
+});

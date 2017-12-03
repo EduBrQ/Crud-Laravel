@@ -19,15 +19,11 @@ class ProdutosController extends Controller
 
     public function create()
     {
-//        $this->authorize('create', Produto::class);
-
-        return view('produtos.form', compact('load','cidades'));
+        return view('produtos.create');
     }
 
     public function store(Request $request)
     {
-
-
         $produto = new Produtos();
 
         $produto->create($request->all());
@@ -37,18 +33,13 @@ class ProdutosController extends Controller
 
     public function edit($id)
     {
-//        $this->authorize('update', Produto::class);
-
         $produtos = Produtos::findOrFail($id);
 
-
-        return view('produtos.form', compact('produtos','load'));
+        return view('produtos.edit', compact('produtos'));
     }
 
     public function update($id, Request $request)
     {
-//        $this->customValidate($request->all(), new ProdutoValidator(), 'update');
-
         $produto = Produtos::findOrFail($id);
 
         $produto->update($request->all());
@@ -58,8 +49,6 @@ class ProdutosController extends Controller
 
     public function delete($id)
     {
-//        $this->authorize('destroy', Produto::class);
-
         Produtos::findOrFail($id)->delete();
 
         return redirect()->to('produtos');

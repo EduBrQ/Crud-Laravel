@@ -22,7 +22,12 @@ class CreateAmigosTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
+
+            $table->integer('id_user');
             $table->timestamps();
+
+            $table->index('id_user');
+
         });
     }
 

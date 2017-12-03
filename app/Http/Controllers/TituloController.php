@@ -1,68 +1,54 @@
 <?php namespace App\Http\Controllers;
 
 
-use App\Produtos;
+use App\Titulo;
 use Illuminate\Http\Request;
 
 class TituloController extends Controller
 {
-
-
-    public function index(Request $request)
+    public function index()
     {
-//        $this->authorize('show', Produto::class);
+        $titulos = Titulo::get();
 
-        $produtos = Produtos::get();
-
-        return view('produtos.index', compact('produtos'));
+        return view('titulos.all', compact('titulos'));
     }
 
-    public function create()
+    public function create($id)
     {
-//        $this->authorize('create', Produto::class);
-
-        return view('produtos.form', compact('load','cidades'));
+        return view('titulos.create', compact('id'));
     }
 
     public function store(Request $request)
     {
+        $titulo = new Titulo();
 
+        $titulo->create($request->all());
 
-        $produto = new Produtos();
-
-        $produto->create($request->all());
-
-        return redirect()->to('/produtos');
+        return redirect()->to('/colecoes/'. $request->id_colecao .'/titulos');
     }
 
     public function edit($id)
     {
-//        $this->authorize('update', Produto::class);
-
-        $produtos = Produtos::findOrFail($id);
+        $titulos = Titulo::findOrFail($id);
 
 
-        return view('produtos.form', compact('produtos','load'));
+        return view('titulos.edit', compact('titulos'));
     }
 
     public function update($id, Request $request)
     {
-//        $this->customValidate($request->all(), new ProdutoValidator(), 'update');
+        $titulo = Titulo::findOrFail($id);
 
-        $produto = Produtos::findOrFail($id);
+        $titulo->update($request->all());
 
-        $produto->update($request->all());
-
-        return redirect()->to('produtos');
+        return redirect()->to('/colecoes/'. $titulo->id_colecao .'/titulos');
     }
 
     public function delete($id)
     {
-//        $this->authorize('destroy', Produto::class);
+        Titulo::findOrFail($id)->delete();
 
-        Produtos::findOrFail($id)->delete();
-
-        return redirect()->to('produtos');
+        return redirect()->back();
     }
 }
 

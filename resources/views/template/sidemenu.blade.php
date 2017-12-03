@@ -24,10 +24,10 @@
                 <p>Coleções</p>
             </a>
         </li>
-        <li>
-            <a href="/titulos">
-                <i class="pe-7s-user"></i>
-                <p>Títulos</p>
+        <li class="">
+            <a href="/emprestimos">
+                <i class="pe-7s-graph"></i>
+                <p>Emprestimos</p>
             </a>
         </li>
         <li>

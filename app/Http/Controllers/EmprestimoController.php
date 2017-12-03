@@ -1,68 +1,68 @@
 <?php namespace App\Http\Controllers;
 
 
-use App\Produtos;
+use App\Amigo;
+use App\Emprestimo;
+use App\Titulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmprestimoController extends Controller
 {
 
 
-    public function index(Request $request)
+    public function index()
     {
-//        $this->authorize('show', Produto::class);
+        $emprestimos = Emprestimo::where('id_user',Auth::user()->id)->get();
 
-        $produtos = Produtos::get();
-
-        return view('produtos.index', compact('produtos'));
+        return view('emprestimos.index', compact('emprestimos'));
     }
 
     public function create()
     {
-//        $this->authorize('create', Produto::class);
+        $amigos = Amigo::where('id_user',Auth::user()->id)->get();
 
-        return view('produtos.form', compact('load','cidades'));
+        $titulos = Titulo::where('id_user',Auth::user()->id)->get();
+
+
+        return view('emprestimos.create', compact('amigos', 'titulos'));
     }
 
     public function store(Request $request)
     {
+        $emprestimo = new Emprestimo();
 
+        $emprestimo->create($request->all());
 
-        $produto = new Produtos();
-
-        $produto->create($request->all());
-
-        return redirect()->to('/produtos');
+        return redirect()->to('/emprestimos');
     }
 
     public function edit($id)
     {
-//        $this->authorize('update', Produto::class);
+//        $this->authorize('update', Emprestimo::class);
 
-        $produtos = Produtos::findOrFail($id);
+        $emprestimos = Emprestimos::findOrFail($id);
 
 
-        return view('produtos.form', compact('produtos','load'));
+        return view('emprestimos.form', compact('emprestimos','load'));
     }
 
     public function update($id, Request $request)
     {
-//        $this->customValidate($request->all(), new ProdutoValidator(), 'update');
+        $emprestimo = Emprestimos::findOrFail($id);
 
-        $produto = Produtos::findOrFail($id);
+        $emprestimo->update($request->all());
 
-        $produto->update($request->all());
-
-        return redirect()->to('produtos');
+        return redirect()->to('emprestimos');
     }
 
     public function delete($id)
     {
-//        $this->authorize('destroy', Produto::class);
+//        $this->authorize('destroy', Emprestimo::class);
 
-        Produtos::findOrFail($id)->delete();
+        Emprestimos::findOrFail($id)->delete();
 
-        return redirect()->to('produtos');
+        return redirect()->to('emprestimos');
     }
 }
 

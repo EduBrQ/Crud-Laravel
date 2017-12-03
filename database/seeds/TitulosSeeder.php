@@ -8,47 +8,39 @@ class TitulosSeeder extends Seeder
     {
         DB::table('titulos')->insert([
             [
-                'referencia' =>  'PIAL-0312',
-                'nome' => 'Cadeado',
+                'nome' => 'DBZ',
+                'editora' => 'aiwa',
                 'valor' => '112.98',
+                'data_lancamento' => date('Y-m-d H:i:s'),
+                'autor' => 'Akira',
+                'id_colecao' => '1',
+                'id_user' => '1',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'referencia' =>  '3M-xs9123',
-                'nome' => 'Fita Adesiva',
-                'valor' => '224.98',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'referencia' =>  'CORAL-LATEX-2319',
-                'nome' => 'Latão de Tinta 18 L',
-                'valor' => '344.98',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'referencia' =>  'PIAL-0312',
-                'nome' => 'Cadeado',
+                'nome' => 'PAto donald',
+                'editora' => 'baril',
                 'valor' => '112.98',
+                'data_lancamento' => date('Y-m-d H:i:s'),
+                'autor' => 'Disney',
+                'id_colecao' => '1',
+                'id_user' => '1',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'referencia' =>  '3M-xs9123',
-                'nome' => 'Fita Adesiva',
-                'valor' => '224.98',
+                'nome' => 'Monica',
+                'editora' => 'globo',
+                'valor' => '112.98',
+                'data_lancamento' => date('Y-m-d H:i:s'),
+                'autor' => 'Mauricio de Sousa',
+                'id_colecao' => '1',
+                'id_user' => '1',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-            [
-                'referencia' =>  'CORAL-LATEX-2319',
-                'nome' => 'Latão de Tinta 18 L',
-                'valor' => '344.98',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
+
         ]);
     }
 }

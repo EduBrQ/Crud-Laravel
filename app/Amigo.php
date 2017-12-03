@@ -8,5 +8,5 @@ class Amigo extends Model
 {
     protected $table = 'amigos';
 
-    protected $fillable = ['nome', 'apelido', 'telefone', 'rua', 'bairro', 'cidade', 'estado'];
+    protected $fillable = ['nome', 'apelido', 'telefone', 'rua', 'bairro', 'cidade', 'estado', 'id_user'];
 }

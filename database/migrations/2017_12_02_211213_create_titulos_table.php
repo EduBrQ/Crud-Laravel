@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTilulosTable extends Migration
+class CreateTitulosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTilulosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tilulos', function (Blueprint $table) {
+        Schema::create('titulos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
             $table->string('editora');
@@ -21,10 +21,12 @@ class CreateTilulosTable extends Migration
             $table->string('data_lancamento');
             $table->string('autor');
             $table->integer('id_colecao');
+            $table->integer('id_user');
+
             $table->timestamps();
 
             $table->index('id_colecao');
-
+            $table->index('id_user');
         });
     }
 
@@ -35,6 +37,6 @@ class CreateTilulosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tilulos');
+        Schema::dropIfExists('titulos');
     }
 }

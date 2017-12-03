@@ -18,11 +18,16 @@ class CreateEmprestimosTable extends Migration
             $table->text('observacao');
             $table->date('data_emprestimo');
             $table->date('data_entrega');
+
             $table->integer('id_amigo');
+            $table->integer('id_user');
+            $table->integer('id_titulo');
+
             $table->timestamps();
 
             $table->index('id_amigo');
-
+            $table->index('id_user');
+            $table->index('id_titulo');
         });
     }
 

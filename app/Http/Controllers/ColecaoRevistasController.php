@@ -2,6 +2,7 @@
 
 
 use App\ColecaoRevistas;
+use App\Titulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,14 +19,11 @@ class ColecaoRevistasController extends Controller
 
     public function create()
     {
-
-        return view('colecoes.form', compact('load'));
+        return view('colecoes.create');
     }
 
     public function store(Request $request)
     {
-
-
         $colecao = new ColecaoRevistas();
 
         $colecao->create($request->all());
@@ -35,18 +33,22 @@ class ColecaoRevistasController extends Controller
 
     public function edit($id)
     {
-//        $this->authorize('update', Colecao::class);
-
         $colecoes = ColecaoRevistas::findOrFail($id);
 
+        return view('colecoes.edit', compact('colecoes'));
+    }
 
-        return view('colecoes.form', compact('colecoes','load'));
+    public function titulos($id)
+    {
+        $titulos = Titulo::where("id_colecao",$id)->get();
+
+        $colecao = ColecaoRevistas::find($id);
+
+        return view('titulos.index', compact('titulos', 'colecao'));
     }
 
     public function update($id, Request $request)
     {
-//        $this->customValidate($request->all(), new ColecaoValidator(), 'update');
-
         $colecao = ColecaoRevistas::findOrFail($id);
 
         $colecao->update($request->all());
@@ -56,8 +58,6 @@ class ColecaoRevistasController extends Controller
 
     public function delete($id)
     {
-//        $this->authorize('destroy', Colecao::class);
-
         ColecaoRevistas::findOrFail($id)->delete();
 
         return redirect()->to('colecoes');
